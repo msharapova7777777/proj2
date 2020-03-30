@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fotogalery</title>
+
+    <style>
+img { height: 200px; padding: 20px;  border: 3px solid tomato; }
+img:hover {filter: brightness(80%); cursor:pointer; }
+#pic {       text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items:stretch}
+#bigpic {       text-align: center;
+             color: green;
+             font-size: large;
+            display: flex;
+            justify-content: space-around;
+            align-items:stretch}         
+
+    </style>
+</head>
+<body onload="kras()">
+    <div id="pic"></div>
+    <div id="bigpic"></div>
+    
+    <script>
+       
+
+      let myGal = [
+   { mName: 'Кошка', mHref: '#cat', pName: 'cat.jpg', tekst: 'Кошки — это домашние любимцы, которые дарят нам ласку, а мы, в свою очередь, дарим им свою заботу и любовь. ', link: ' https://zen.yandex.ru/media/murzik/liubiteliam-koshek-na-zametku-30-interesnyh-faktov-o-koshkah--neskolko-poleznyh-sovetov-5a5c310e256d5c27f31bf187'},
+   { mName: 'Собака', mHref: '#dog', pName: 'dog.jpg', tekst: 'Собака давно и прочно заняла свое место рядом с человеком. Она является неподкупным «охранником», преданным другом, безотказным помощником и заботливым компаньоном.', link: 'https://vplate.ru/sobaki/fakty/'},
+   { mName: 'Хомяк', mHref: '#hamster', pName: 'hamster.jpg', tekst: 'Хомячки - самые популярные домашние животные. Они дешёвые, мало едят, занимают мало места, с ними не надо гулять, они не лают, не разбрасывают повсюду шерсть... И разумеется, они невероятно милые пушистики.', link: 'https://zen.yandex.ru/media/zveropolis/strashnaia-pravda-o-homiakah-5-faktov-o-kotoryh-ne-priniato-govorit-5b13e26a83090530bc94b087' },
+   
+      ]
+
+      let s='';
+
+        for (i=0; i<myGal.length; i++) {
+            
+            s +=`<div > <img src="images/${myGal[i].pName}"  onclick="bpic('${myGal[i].pName}', '${myGal[i].tekst}')"> <p> <a id="t" href="${myGal[i].link}" target="blank"> ${myGal[i].mName} </a></p></div> `; 
+        }    
+
+
+        pic.innerHTML = s;
+     
+        function bpic(k, z){
+
+            bigpic.innerHTML =`<div > <img src="images/${k}" style="height: 500px;  border: 3px solid green;"  onclick="cls()"> <p > ${z} </p> </div>`;
+
+        }
+
+       function cls () {
+        bigpic.innerHTML = ' ';
+
+       }
+
+
+       function kras() {
+        let f = document.getElementById("pic");
+        let d = f.getElementsByTagName('a');
+           for (i=0; i<d.length; i++) {
+            
+            
+            d[i].style.color = 'red';
+            d[i].style.fontSize = '25px';
+            d[i].style.fontWeight= 'bolder';
+            d[i].style.fontFamily= 'verdana';
+           }
+
+
+    }
+    //    document.getElementById("t").style.color = 'red';
+    //    document.getElementById("t").style.textSize = '25px';
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
